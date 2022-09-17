@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../Button/Button'
 import './Navbar.css'
 
 export const Navbar = () => {
@@ -16,9 +15,9 @@ export const Navbar = () => {
                 <h1>Pomofocus</h1>
             </div>
             <div className="btn-container">
-                <Button style={navbarButtonStyle} value="Report" />
-                <Button style={navbarButtonStyle} value="Setting" />
-                <Button style={navbarButtonStyle} value="Login" />
+                <input type="button" value='Report' />
+                <input type="button" value='Setting' />
+                <input type="button" value='Login' />
             </div>
 
         </nav>

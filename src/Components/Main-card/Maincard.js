@@ -3,7 +3,7 @@ import './Maincard.css'
 
 const Maincard = () => {
     
-    const [timer,setTimer] = useState('00:05')
+    const [timer,setTimer] = useState('25:00')
     const [start,setStart] = useState()
 
     const countDown = () => {
@@ -28,27 +28,29 @@ const Maincard = () => {
         }
 
     useEffect(() => {
+        let tempo;
         if(start){
-            setTimeout(() => {
+            tempo = setTimeout(() => {
                 countDown()
             }, 1000)
+        }
+        else{
+            clearTimeout(tempo);
         }
     })
     
   return (
     <div className='main-card'>
-        <div className="nav-panel">
+        <div className="nav">
             <h3>Pomodoro</h3>
             <h3>Short Break</h3>
             <h3>Long Break</h3>
         </div>
-        <div className="time-container">
-            <p>{timer}</p>
-        </div>
+            <p style={{fontSize: '60px'}}>{timer}</p>
         <div className="start-btn">
         {
             start ? 
-            <button className='start-btn' onClick={() => setStart(!start)}>PAUSE</button>
+            <button className='start-btn' onClick={() => setStart(!start)}>STOP</button>
             :
             <button className='start-btn' onClick={() => setStart(!start)}>START</button>
         }

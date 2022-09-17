@@ -1,0 +1,22 @@
+.Navbar{
+    width: 49%;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-panel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-container input{
+    width: 5rem;
+    height: 2rem;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255, 0.1);
+    color: white;
+}
+
