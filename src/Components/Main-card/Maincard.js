@@ -3,7 +3,7 @@ import './Maincard.css'
 
 const Maincard = () => {
     
-    const [timer,setTimer] = useState('25:00')
+    const [timer,setTimer] = useState('00:05')
     const [start,setStart] = useState()
 
     const countDown = () => {
@@ -21,8 +21,11 @@ const Maincard = () => {
                 secTimer--;
 
             setTimer(`${minTimer}:${secTimer}`)
+            
+            if(minTimer === 0 && secTimer === 0)
+                alert('Time out !')
 
-    }
+        }
 
     useEffect(() => {
         if(start){
@@ -43,7 +46,12 @@ const Maincard = () => {
             <p>{timer}</p>
         </div>
         <div className="start-btn">
-            <button className='start-btn' onClick={() => setStart(true)}>START</button>
+        {
+            start ? 
+            <button className='start-btn' onClick={() => setStart(!start)}>PAUSE</button>
+            :
+            <button className='start-btn' onClick={() => setStart(!start)}>START</button>
+        }
         </div>
     </div>
   )
