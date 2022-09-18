@@ -5,6 +5,7 @@ const Maincard = () => {
     
     const [timer,setTimer] = useState('25:00')
     const [start,setStart] = useState()
+    const [startColor,setStartColor] = useState('')
 
     const countDown = () => {
 
@@ -25,34 +26,33 @@ const Maincard = () => {
             if(minTimer === 0 && secTimer === 0)
                 alert('Time out !')
 
-        }
+    }
 
     useEffect(() => {
-        let tempo;
         if(start){
-            tempo = setTimeout(() => {
+            setTimeout(() => {
                 countDown()
             }, 1000)
-        }
-        else{
-            clearTimeout(tempo);
         }
     })
     
   return (
     <div className='main-card'>
         <div className="nav">
-            <h3>Pomodoro</h3>
-            <h3>Short Break</h3>
-            <h3>Long Break</h3>
+            <h3 onClick={() => {setTimer('25:00'); setStartColor('#D95550'); document.body.style = 'background-color: #D95550; transition: 0.4s'}}>Pomodoro</h3>
+            <h3 onClick={() => {setTimer('05:00'); setStartColor('#4C9195'); document.body.style = 'background-color: #4C9195; transition: 0.4s'}}>Short Break</h3>
+            <h3 onClick={() => {setTimer('15:00'); setStartColor('#457CA3'); document.body.style = 'background-color: #457CA3; transition: 0.4s'}}>Long Break</h3>
         </div>
-            <p style={{fontSize: '60px'}}>{timer}</p>
+        <div className="time-container">
+            <p>{timer}</p>
+        </div>
+
         <div className="start-btn">
         {
             start ? 
-            <button className='start-btn' onClick={() => setStart(!start)}>STOP</button>
+            <button style={{color: `${startColor}`}} className='start-btn' onClick={() => setStart(!start)}>STOP</button>
             :
-            <button className='start-btn' onClick={() => setStart(!start)}>START</button>
+            <button style={{color: `${startColor}`}} className='start-btn' onClick={() => setStart(!start)}>START</button>
         }
         </div>
     </div>
