@@ -3,7 +3,7 @@ import './Maincard.css'
 
 const Maincard = () => {
     
-    const [timer,setTimer] = useState('')
+    const [timer,setTimer] = useState('25:00')
     const [start,setStart] = useState()
     const [startColor,setStartColor] = useState('')
     const ref = useRef()
